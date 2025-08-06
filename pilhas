@@ -1,0 +1,17 @@
+# criando uma pilha vazia
+pilha = []
+
+# adicionando elementos (push)
+pilha.append(1)
+pilha.append(2)
+pilha.append(3)
+
+# exibindo a pilha
+print("pilha:", pilha)  # saida: pilha: [1, 2, 3]
+
+# removendo elementos (pop)
+topo = pilha.pop()
+print("elemento removido:", topo)  # saida: elemento removido: 3
+
+# pilha apos remocao
+print("pilha agora:", pilha)  # saida: pilha agora: [1, 2]
