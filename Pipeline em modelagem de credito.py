@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
 
-# 🔹 Simulando dados de clientes
+#Simulando dados de clientes
 data = pd.DataFrame({
     'idade': [25, 40, 35, 50, None],
     'renda_mensal': [3000, 7000, 5000, 10000, 4000],
@@ -15,27 +15,28 @@ data = pd.DataFrame({
     'inadimplente': [1, 0, 0, 0, 1]  # 1 = inadimplente, 0 = adimplente
 })
 
-# 🔹 Separando features e target
+#Separando features e target
 X = data.drop('inadimplente', axis=1)
 y = data['inadimplente']
 
-# 🔹 Dividindo em treino e teste
+#Dividindo em treino e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 🔹 Criando a pipeline
+#Criando a pipeline
 pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='mean')),         # Preenche valores ausentes
     ('scaler', StandardScaler()),                        # Normaliza os dados
     ('model', RandomForestClassifier(random_state=42))   # Modelo de classificação
 ])
 
-# 🔹 Treinando o modelo
+#Treinando o modelo
 pipeline.fit(X_train, y_train)
 
-# 🔹 Fazendo previsões
+#Fazendo previsões
 y_pred = pipeline.predict(X_test)
 
-# 🔹 Avaliando o modelo
+#Avaliando o modelo
 print(classification_report(y_test, y_pred))
+
 
 
